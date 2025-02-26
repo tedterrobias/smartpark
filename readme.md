@@ -5,7 +5,7 @@
 ### On terminal, go to project path and execute the following
 - `mvn clean package`
 - `java -jar target/`< JarFileGeneratedInTargetFolder >`.jar `
-  - e.g. `java -jar target/parkinglotmanagementsystem1.0.jar`
+  - e.g. `java -jar target/parkinglotmanagementsystem-1.0.jar`
 
 ### Testing The App
 
