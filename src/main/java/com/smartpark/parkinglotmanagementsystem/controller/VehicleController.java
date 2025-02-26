@@ -28,7 +28,7 @@ public class VehicleController
     private final VehicleService vehicleService;
 
     @Operation(summary = "Register and check in a new vehicle",
-        description = "Registers a vehicle in the specified parking lot.")
+        description = "Registers a vehicle in the specified parking lot. vehicleId is incremental and sequential. Starts at 1.")
     @PostMapping(value = "/{lotId}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<VehicleDto> registerVehicle(@RequestBody @Valid VehicleDto vehicleDto, @PathVariable Long lotId)
         throws NotFoundException, FullParkingLotException
@@ -46,7 +46,7 @@ public class VehicleController
     }
 
     @Operation(summary = "get all currently parked vehicles",
-        description = "get all currently parked vehicles in the specified parking lot.")
+        description = "get all currently parked vehicles in the specified parking lot. lotId is incremental and sequential. Starts at 1.")
     @GetMapping("/bulk/active")
     public ResponseEntity<List<VehicleDto>> getAllCurrentlyParkedVehiclesByParkingLot(@RequestParam Long lotId) {
         List<VehicleDto> parkedVehicles = vehicleService.getAllCurrentlyParkedVehiclesByParkingLot(lotId);

@@ -25,7 +25,7 @@ public class ParkingLotController
     private final ParkingLotService parkingLotService;
 
     @Operation(summary = "Create a parking lot",
-        description = "Create a parking lot.")
+        description = "Create a parking lot. lotId is incremental and sequential. Starts at 1.")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ParkingLotDto> createParkingLot(@RequestBody @Valid ParkingLotDto parkingLotDto) {
         ParkingLotDto createdParkingLot = parkingLotService.registerParkingLot(parkingLotDto);
@@ -33,7 +33,7 @@ public class ParkingLotController
     }
 
     @Operation(summary = "get available parking slots parking lot",
-        description = "get available parking slots parking lot.")
+        description = "get available parking slots parking lot. lotId is incremental and sequential. Starts at 1.")
     @GetMapping("/available")
     public ResponseEntity<String> getAvailableParkingSpaces(@RequestParam Long lotId) throws NotFoundException
     {
